@@ -20,18 +20,18 @@ public class Chatbot
 	
 	public Chatbot(String username)
 	{
-		this.movieList = null;
+		this.movieList = new ArrayList<Movie>();
 		this.shoppingList = new ArrayList<String>();
-		this.cuteAnimalMemes = null;
+		this.cuteAnimalMemes = new ArrayList<String>();
 		this.currentTime = null;
-		this.questions = null;
-		this.username = null;
+		this.questions = new String [10];
+		this.username = username;
 		this.content = null;
 		this.intro = null;
 		this.currentTime = null;
-		this.topics = null;
+		this.topics = new String [7];
 		this.verbs = new String [4];
-		this.followUps = null;
+		this.followUps = new String [5];
 	}
 	
 	private void buildVerbs()
@@ -43,8 +43,12 @@ public class Chatbot
 	}
 
 	private void buildMovieList()
-	{
-		
+	{		
+		movieList.add(new Movie("Star Wars"));
+		movieList.add(new Movie("21 Jump Street"));
+		movieList.add(new Movie("Spiderman"));
+		movieList.add(new Movie("Hidden Figures"));
+		movieList.add(new Movie("Friday the 13th"));	
 	}
 	
 	private void buildShoppingList()
@@ -54,12 +58,15 @@ public class Chatbot
 		shoppingList.add("protein");
 		shoppingList.add("fruit");
 		shoppingList.add("slug bait");
-		
+		shoppingList.add("apple sauce");
 	}
 	
 	private void buildCuteAnimals()
 	{
-		
+		cuteAnimalMemes.add("pupper");
+		cuteAnimalMemes.add("otter");
+		cuteAnimalMemes.add("kittie");
+		cuteAnimalMemes.add("FLOOFER");
 	}
 	
 	private void buildQuestions()
@@ -67,9 +74,48 @@ public class Chatbot
 		
 	}
 	
+	/**
+	 *Takes the user input and combines with a generated response and returns it.
+	 * @param input The user's supplied text.
+	 * @return The combined user input and chatbot response
+	 */
+	
 	public String processConversation(String input)
 	{
-		return null;
+		String chatbotResponse = "";
+		chatbotResponse += "You said:" + "\n" + input + "\n";
+		chatbotResponse += buildChatbotResponse();
+		
+		return chatbotResponse;
+	}
+	
+	/**
+	 * Builds a random response using the chatbot's sentence part arrays.
+	 * @return The random response of the chatbot.
+	 */
+	
+	private String buildChatbotResponse()
+	{
+		String response = "I ";
+		int random = (int) (Math.random() * verbs.length);
+		
+		response += verbs[random];
+		
+		random = (int) (Math.random() * topics.length);
+		response += " " + topics[random] + ".\n";
+		
+		random = (int) (Math.random() * questions.length);
+		response += questions[random];
+		
+		random = (int) (Math.random() * 2);
+		
+		if (random % 2 == 0)
+		{
+			random = (int) (Math.random() * movieList.size());
+			response += "\n" + movieList.get(random).getTitle() + " is a great movie!";
+		}
+		
+		return response;
 	}
 	
 	public boolean lengthChecker(String input)
@@ -94,7 +140,7 @@ public class Chatbot
 	
 	public boolean userNameChecker(String input)
 	{
-		return false;
+		
 	}
 	
 	public boolean contentChecker(String contentCheck)
@@ -124,6 +170,10 @@ public class Chatbot
 
 	public boolean quitChecker(String exitString)
 	{
+		if (exitString.equalsIgnoreCase("quit"))
+		{
+			return true;
+		}
 		return false;
 	}
 
@@ -184,7 +234,7 @@ public class Chatbot
 	
 	public LocalTime getCurrentTime()
 	{
-		return null;
+		return currentTime;
 	}
 	
 	public void setUsername(String username)
@@ -197,3 +247,4 @@ public class Chatbot
 		this.content = content;
 	}
 }
+      
