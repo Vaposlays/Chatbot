@@ -1,8 +1,6 @@
 package chat.controller;
 
 import chat.model.Chatbot;
-
-
 import chat.view.PopupDisplay;
 
 public class ChatController
@@ -26,8 +24,6 @@ public class ChatController
 			response = display.collectResponse(response);
 		}
 	}
-
-	public String interactWithChatbot(String input)
 	
 	private String popupChat(String chat)
 	{
