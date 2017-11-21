@@ -33,9 +33,20 @@ public class ChatController
 	{
 		String chatbotSays ="";
 		
-		chatbot.processConversation(input);
+		if(chatbot.quitChecker(input))
+		{
+			close();
+		}
+		
+		chatbotSays += chatbot.processConversation(input);
 		
 		return chatbotSays;
+	}
+	
+	private void close()
+	{
+		display.displayText("Goodbye");
+		System.exit(0);
 	}
 	
 //	private String popupChat(String chat)
