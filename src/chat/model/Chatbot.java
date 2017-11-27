@@ -149,7 +149,7 @@ public class Chatbot
 	
 	public boolean userNameChecker(String input)
 	{
-		
+		return false;
 	}
 	
 	public boolean contentChecker(String contentCheck)
