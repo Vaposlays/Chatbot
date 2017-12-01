@@ -135,12 +135,12 @@ public class Chatbot
 	
 	public boolean htmlTagChecker(String input)
 	{
-		return false;
+		return false;																																																											
 	}
 	
 	public boolean userNameChecker(String input)
 	{
-		
+		return false;
 	}
 	
 	public boolean contentChecker(String contentCheck)
