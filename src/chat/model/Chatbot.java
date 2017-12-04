@@ -6,6 +6,9 @@ import java.util.ArrayList;
 
 public class Chatbot
 {
+	/**
+	 * 
+	 */
 	private List<Movie> movieList;
 	private List<String> shoppingList;
 	private List<String> cuteAnimalMemes;
@@ -18,6 +21,10 @@ public class Chatbot
 	private String intro;
 	private LocalTime currentTime;
 	
+	/**
+	 * 
+	 * @param username
+	 */
 	public Chatbot(String username)
 	{
 		this.movieList = new ArrayList<Movie>();
@@ -33,7 +40,9 @@ public class Chatbot
 		this.verbs = new String [4];
 		this.followUps = new String [5];
 	}
-	
+	/**
+	 * An array list that grabs verbs to use in different statements when Chatbot responds
+	 */
 	private void buildVerbs()
 	{
 		verbs[0] = "like";
@@ -113,6 +122,24 @@ public class Chatbot
 		{
 			random = (int) (Math.random() * movieList.size());
 			response += "\n" + movieList.get(random).getTitle() + " is a great movie!";
+		}
+		
+		int followup = (int) (Math.random() * 5);
+		
+		switch (followup)
+		{
+		case 0:
+			response += followUps[0] + "\n";
+			break;
+		case 3: 
+			response += followUps[1] + "\n";
+		case 1: 
+			response += followUps[2] + "\n";
+			break;
+		default:
+			response += followUps[4] + "\n";
+			response += followUps[3] + "\n";
+			break;
 		}
 		
 		return response;

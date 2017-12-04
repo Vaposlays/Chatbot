@@ -19,8 +19,8 @@ public class Movie
 		this.ratingMPAA = "R";
 		this.review = "It's the scariest movie of the century";
 		this.length = 120;
-		this.releaseDate = ;
-		this.starScore = ;
+		this.releaseDate = "";
+		this.starScore = "";
 	}
 
 	public String getTitle()
