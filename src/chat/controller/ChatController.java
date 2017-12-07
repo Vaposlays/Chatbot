@@ -20,7 +20,6 @@ public class ChatController
 	public void start()
 	{
 		display.displayText("Welcome to chatbot");
-		String response = display.collectResponse("What do you want to talk about?");
 		
 //		while ( chatbot.lengthChecker(response) && !chatbot.quitChecker(response))
 //		{

@@ -47,6 +47,7 @@ public class ChatPanel extends JPanel
 		appLayout = new SpringLayout();
 		infoLabel = new JLabel("Type to chat with the chatbot");
 		chatScrollPane = new JScrollPane();
+		checkerButton = new JButton();
 		
 		setupScrollPane();
 		setupPanel();

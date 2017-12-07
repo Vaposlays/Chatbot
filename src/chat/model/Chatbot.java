@@ -35,10 +35,13 @@ public class Chatbot
 		this.username = username;
 		this.content = null;
 		this.intro = null;
-		this.currentTime = null;
+		this.currentTime = LocalTime.now();
 		this.topics = new String [7];
 		this.verbs = new String [4];
 		this.followUps = new String [5];
+		
+		buildVerbs();
+		
 	}
 	/**
 	 * An array list that grabs verbs to use in different statements when Chatbot responds
@@ -92,6 +95,7 @@ public class Chatbot
 	public String processConversation(String input)
 	{
 		String chatbotResponse = "";
+		chatbotResponse += currentTime.getHour() + ":" + currentTime.getMinute() + " ";
 		chatbotResponse += "You said:" + "\n" + input + "\n";
 		chatbotResponse += buildChatbotResponse();
 		
