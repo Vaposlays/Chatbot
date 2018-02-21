@@ -12,7 +12,7 @@ import javax.swing.JScrollPane;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import javax.swing.ImageIcon;
 
 import chat.controller.ChatController;
 /**
@@ -24,11 +24,16 @@ public class ChatPanel extends JPanel
 {
 	private ChatController appController;
 	private JButton chatButton;
+	private JButton searchButton;
+	private JButton saveButton;
+	private JButton loadButton;
+	private JButton tweetButton;
 	private JButton checkerButton;
 	private JTextField inputField;
 	private JTextArea chatArea;
 	private SpringLayout appLayout;
 	private JLabel infoLabel;
+	//Need a data member for the scrollPane
 	private JScrollPane chatScrollPane;
 	
 	/**
@@ -41,7 +46,12 @@ public class ChatPanel extends JPanel
 		this.appController = appController;
 		
 		//Initialize GUI data members
-		chatButton = new JButton("chat");
+		
+		chatButton = new JButton("chat", new ImageIcon(getClass().getResource("/chat/view/images/ChatIcon.png")));
+		loadButton = new JButton("load", new ImageIcon(getClass().getResource("/chat/view/images/LoadIcon.png")));
+		saveButton = new JButton("save", new ImageIcon(getClass().getResource("/chat/view/images/SaveIcon.png")));
+		searchButton = new JButton("search", new ImageIcon(getClass().getResource("/chat/view/images/SearchIcon.png")));
+		tweetButton = new JButton("tweet", new ImageIcon(getClass().getResource("/chat/view/images/TweetIcon.png")));
 		chatArea = new JTextArea(10,25);
 		inputField = new JTextField(20);
 		appLayout = new SpringLayout();
@@ -73,6 +83,10 @@ public class ChatPanel extends JPanel
 		this.add(inputField);
 		this.add(chatScrollPane);
 		this.add(infoLabel);
+		this.add(searchButton);
+		this.add(saveButton);
+		this.add(tweetButton);
+		this.add(loadButton);
 		chatArea.setEnabled(false);
 		chatArea.setEditable(false);
 	}
@@ -115,6 +129,38 @@ public class ChatPanel extends JPanel
 				String displayText = appController.useCheckers(userText);
 				chatArea.append(displayText);
 				inputField.setText("");
+			}
+		});
+		
+		tweetButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				
+			}
+		});
+		
+		loadButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				
+			}
+		});
+		
+		saveButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				
+			}
+		});
+		
+		searchButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				
 			}
 		});
 	}
